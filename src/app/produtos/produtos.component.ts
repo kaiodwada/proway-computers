@@ -20,7 +20,7 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void {
     const produtos = this.produtosService.getAll()
     this.route.queryParamMap.subscribe(params => {
-      const descricao = params.get("descricao")?.toLowerCase()
+      const descricao = params.get("descricao")?.toLocaleLowerCase()
       if(descricao){
         this.produtos = produtos.filter(produto => produto.descricao.toLowerCase().includes(descricao))
         return
